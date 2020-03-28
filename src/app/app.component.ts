@@ -6,4 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  public showMenu = false;
+  public links = [
+    { url: '/home', label: 'HOME' }
+  ];
+
+  toggleMenu(): void {
+    this.showMenu = !this.showMenu;
+  }
 }

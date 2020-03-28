@@ -1,0 +1,96 @@
+@import '../assets/styles/mixins';
+
+nav {
+  @include custom-scrollbar(6px, #333333, #777777);
+  @include no-select;
+  position: absolute;
+  width: 192px;
+  height: 100vh;
+  overflow: hidden;
+  white-space: nowrap;
+  overflow-y: scroll;
+  padding-left: 8px;
+  background-color: #777777;
+  box-shadow: -5px 0px 5px 7px #424242;
+  transition: all 250ms;
+  .nav-header {
+    border-bottom: 1px solid #424242;
+    p {
+      margin: 10px 8px;
+      font-size: 16px;
+      color: #111111;
+      &:hover, &:focus {
+        cursor: pointer;
+        outline: none;
+      }
+    }
+  }
+  .nav-link {
+    display: flex;
+    align-items: center;
+    height: 36px;
+    a {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      height: inherit;
+      padding-left: 16px;
+      text-decoration: none;
+      font-size: 14px;
+      color: #222222;
+      span {
+        display: none;
+      }
+      &:hover, &:focus {
+        color: #000000;
+        outline: none;
+        cursor: pointer;
+        span {
+          display: inline;
+        }
+      }
+    }
+  }
+}
+.closed {
+  width: 0;
+  padding-left: 0;
+  box-shadow: none;
+  transition: all 250ms;
+}
+
+.menu-control {
+  position: absolute;
+  top: 4px;
+  left: 207px;
+  width: 24px;
+  height: 24px;
+  transition: left 250ms;
+  .menu-btn {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+.left {
+  left: 7px;
+  transition: left 250ms;
+}
+
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+}
+
+@media screen and (min-width: 1024px) {
+  .menu-control {
+    .menu-btn {
+      opacity: 0.4;
+      transition: opacity 500ms;
+      &:hover {
+        opacity: 1;
+        transition: opacity 500ms;
+      }
+    }
+  }
+}
